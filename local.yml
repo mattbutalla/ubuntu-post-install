@@ -1,0 +1,13 @@
+- name: Add Microsoft Apt signing key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+- apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    filename: vscode.list
+- name: Install vscode
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-transport-https
+    - code
