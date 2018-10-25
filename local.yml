@@ -18,9 +18,13 @@
 - name: psutil install
   pip:
     name: psutil
-- name: gnome-tweak-tool
+- name: gnome modification
   apt:
-    name: gnome-tweak-tool
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - gnome-tweak-tool
+    - gnome-shell-extensions
 - name: Papirus Repo
   apt_repository:
     repo: ppa:papirus/papirus
@@ -33,3 +37,9 @@
   dconf:
     key: "/org/gnome/desktop/interface/icon-theme"
     value: "'Papirus'"
+- name: Enable Shell Extensions
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/enabled-extensions"
+    value: "['user-theme@gnome-shell-extensions.gcampax.github.com']"
