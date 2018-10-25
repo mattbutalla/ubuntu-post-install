@@ -1,7 +1,8 @@
 - name: Add Microsoft Apt signing key
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
-- apt_repository:
+- name: Add VS Code Repo
+  apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
     filename: vscode.list
 - name: Install vscode
@@ -11,3 +12,24 @@
     packages:
     - apt-transport-https
     - code
+- name: Install pip
+  apt:
+    name: python-pip
+- name: psutil install
+  pip:
+    name: psutil
+- name: gnome-tweak-tool
+  apt:
+    name: gnome-tweak-tool
+- name: Papirus Repo
+  apt_repository:
+    repo: ppa:papirus/papirus
+- name: Papirus Icon Theme
+  apt:
+    name: papirus-icon-theme
+- name: Set Icon Theme
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'Papirus'"
