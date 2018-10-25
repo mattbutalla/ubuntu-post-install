@@ -25,6 +25,7 @@
     packages:
     - gnome-tweak-tool
     - gnome-shell-extensions
+    - gnome-themes-standard
 - name: Papirus Repo
   apt_repository:
     repo: ppa:papirus/papirus
