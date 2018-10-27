@@ -26,6 +26,7 @@
     - gnome-tweak-tool
     - gnome-shell-extensions
     - gnome-themes-standard
+    - arc-theme
 - name: Papirus Repo
   apt_repository:
     repo: ppa:papirus/papirus
@@ -44,3 +45,15 @@
   dconf:
     key: "/org/gnome/shell/enabled-extensions"
     value: "['user-theme@gnome-shell-extensions.gcampax.github.com']"
+- name: Set Arc Theme
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Arc-Dark'"
+- name: Set Arc Shell
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/user-theme/name"
+    value: "'Arc-Dark'"
