@@ -38,6 +38,7 @@
     - gnome-tweak-tool
     - gnome-shell-extensions
     - gnome-themes-standard
+    - gnome-shell-extension-dash-to-panel
     - arc-theme
 - name: Papirus Repo
   apt_repository:
@@ -56,7 +57,7 @@
   become_user: matt
   dconf:
     key: "/org/gnome/shell/enabled-extensions"
-    value: "['user-theme@gnome-shell-extensions.gcampax.github.com']"
+    value: "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
 - name: Set Arc Theme
   become: yes
   become_user: matt
@@ -69,3 +70,15 @@
   dconf:
     key: "/org/gnome/shell/extensions/user-theme/name"
     value: "'Arc-Dark'"
+- name: Dash To Panel - Panel Size
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/panel-size"
+    value: "40"
+- name: Dash To Panel - App Icon Margin
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/appicon-margin"
+    value: "0"
