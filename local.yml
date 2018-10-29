@@ -58,6 +58,12 @@
   dconf:
     key: "/org/gnome/shell/enabled-extensions"
     value: "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
+- name: No Favorite Apps
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/favorite-apps"
+    value: "['']"
 - name: Set Arc Theme
   become: yes
   become_user: matt
