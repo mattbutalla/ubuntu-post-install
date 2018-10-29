@@ -30,6 +30,7 @@
 - name: psutil install
   pip:
     name: psutil
+
 - name: gnome modification
   apt:
     name: "{{ packages }}"
@@ -38,8 +39,17 @@
     - gnome-tweak-tool
     - gnome-shell-extensions
     - gnome-themes-standard
-    - gnome-shell-extension-dash-to-panel
     - arc-theme
+
+- name: Clone Dash To Panel Repo
+  git:
+    repo: https://github.com/home-sweet-gnome/dash-to-panel.git
+    dest: /tmp/dash-to-panel
+- name: Build and Install Dash To Panel
+  shell: make install
+  args:
+    chdir: /tmp/dash-to-panel
+
 - name: Papirus Repo
   apt_repository:
     repo: ppa:papirus/papirus
@@ -88,3 +98,33 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/appicon-margin"
     value: "0"
+- name: Dash To Panel - App Icon Padding
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/appicon-padding"
+    value: "1"
+- name: Dash To Panel - Use Custom Opacity
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-opacity"
+    value: "true"
+- name: Dash To Panel - Set Custom Opacity
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity"
+    value: "0.7"
+- name: Dash To Panel - Multi-monitor
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/multi-monitors"
+    value: "true"
+- name: Dash To Panel - Isolate Monitors
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/isolate-monitors"
+    value: "true"
