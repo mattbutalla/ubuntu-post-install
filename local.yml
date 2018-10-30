@@ -31,15 +31,13 @@
   pip:
     name: psutil
 
-- name: gnome modification
+- name: GNOME Modification
   apt:
     name: "{{ packages }}"
   vars:
     packages:
     - gnome-tweak-tool
     - gnome-shell-extensions
-    - gnome-themes-standard
-    - arc-theme
 
 - name: Clone Dash To Panel Repo
   git:
@@ -50,18 +48,6 @@
   args:
     chdir: /tmp/dash-to-panel
 
-- name: Papirus Repo
-  apt_repository:
-    repo: ppa:papirus/papirus
-- name: Papirus Icon Theme
-  apt:
-    name: papirus-icon-theme
-- name: Set Icon Theme
-  become: yes
-  become_user: matt
-  dconf:
-    key: "/org/gnome/desktop/interface/icon-theme"
-    value: "'Papirus'"
 - name: Enable Shell Extensions
   become: yes
   become_user: matt
@@ -72,20 +58,8 @@
   become: yes
   become_user: matt
   dconf:
-    key: "/org/gnome/shell/favorite-apps"
-    value: "['']"
-- name: Set Arc Theme
-  become: yes
-  become_user: matt
-  dconf:
-    key: "/org/gnome/desktop/interface/gtk-theme"
-    value: "'Arc-Dark'"
-- name: Set Arc Shell
-  become: yes
-  become_user: matt
-  dconf:
-    key: "/org/gnome/shell/extensions/user-theme/name"
-    value: "'Arc-Dark'"
+    key: "/org/gnome/shell/extensions/dash-to-panel/show-favorites"
+    value: "false"
 - name: Dash To Panel - Panel Size
   become: yes
   become_user: matt
@@ -97,25 +71,13 @@
   become_user: matt
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/appicon-margin"
-    value: "0"
+    value: "1"
 - name: Dash To Panel - App Icon Padding
   become: yes
   become_user: matt
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/appicon-padding"
-    value: "1"
-- name: Dash To Panel - Use Custom Opacity
-  become: yes
-  become_user: matt
-  dconf:
-    key: "/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-opacity"
-    value: "true"
-- name: Dash To Panel - Set Custom Opacity
-  become: yes
-  become_user: matt
-  dconf:
-    key: "/org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity"
-    value: "0.7"
+    value: "4"
 - name: Dash To Panel - Multi-monitor
   become: yes
   become_user: matt
@@ -128,3 +90,81 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/isolate-monitors"
     value: "true"
+- name: Dash To Panel - Set Focus Highlight Opacity
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/focus-highlight-opacity"
+    value: "20"
+- name: Dash To Panel - Set Underbar Size
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/dot-size"
+    value: "2"
+- name: Dash To Panel - Hide Deskop Button
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button"
+    value: "false"
+- name: GNOME Scaling
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/text-scaling-factor"
+    value: "0.9"
+- name: GTK Theme
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Yaru-dark'"
+- name: Terminal Profile List
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/list"
+    value: "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']"
+- name: Terminal Profile Default
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/default"
+    value: "'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'"
+- name: Terminal Profile Default Background Color
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-color"
+    value: "'rgb(46,52,54)'"
+- name: Terminal Profile Default Foreground Color
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/foreground-color"
+    value: "'rgb(211,215,207)'"
+- name: Terminal Profile Default Use Transparent Background
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-transparent-background"
+    value: "true"
+- name: Terminal Profile Default Transparency
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-transparency-percent"
+    value: "7"
+- name: Terminal Profile Default Don't Use Theme Colors
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors"
+    value: "false"
+- name: Terminal Profile Default Don't Use Theme Transparency
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-transparency"
+    value: "false"
