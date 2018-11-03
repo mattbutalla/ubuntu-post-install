@@ -222,3 +222,10 @@
   dconf:
     key: "/org/gtk/settings/file-chooser/show-hidden"
     value: "true"
+
+- name: Media Keys - Set Home Super+e
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/home"
+    value: "'<Super>e'"
