@@ -53,7 +53,10 @@
 - name: Copy Ubuntu Logo For Apps Icon
   shell: cp cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
 - name: Read Access To Ubuntu Icon
-  shell: chmod 644 ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png
+  file:
+    path: ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png
+    state: file
+    mode: 0644 
 - name: Enable Shell Extensions
   become: yes
   become_user: matt
@@ -212,3 +215,10 @@
   dconf:
     key: "/org/gnome/settings-daemon/peripherals/keyboard/numlock-state"
     value: "'on'"
+
+- name: File Chooser - Show Hidden Files
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gtk/settings/file-chooser/show-hidden"
+    value: "true"
