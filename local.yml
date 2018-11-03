@@ -134,7 +134,7 @@
   become_user: matt
   dconf:
     key: "/org/gnome/desktop/interface/text-scaling-factor"
-    value: "0.85"
+    value: "0.87"
 - name: GTK Theme
   become: yes
   become_user: matt
@@ -229,3 +229,14 @@
   dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/home"
     value: "'<Super>e'"
+
+- name: Set Git user.name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Matt Butalla"
+- name: Set Git user.email
+  git_config:
+    name: user.email
+    scope: global
+    value: "butallmj@gmail.com"
