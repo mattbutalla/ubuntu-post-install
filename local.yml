@@ -38,6 +38,7 @@
     packages:
     - gnome-tweak-tool
     - gnome-shell-extensions
+    - git
 
 - name: Clone Dash To Panel Repo
   git:
@@ -48,12 +49,23 @@
   args:
     chdir: /tmp/dash-to-panel
 
+
+- name: Copy Ubuntu Logo For Apps Icon
+  shell: cp cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
+- name: Read Access To Ubuntu Icon
+  shell: chmod 644 ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png
 - name: Enable Shell Extensions
   become: yes
   become_user: matt
   dconf:
     key: "/org/gnome/shell/enabled-extensions"
     value: "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
+- name: Use Ubuntu Logo For Apps Icon
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file"
+    value: "'/home/matt/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png'"
 - name: No Favorite Apps
   become: yes
   become_user: matt
@@ -108,18 +120,43 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button"
     value: "false"
+- name: Dash To Panel - No Window Preview Padding
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding"
+    value: "0"
 - name: GNOME Scaling
   become: yes
   become_user: matt
   dconf:
     key: "/org/gnome/desktop/interface/text-scaling-factor"
-    value: "0.9"
+    value: "0.85"
 - name: GTK Theme
   become: yes
   become_user: matt
   dconf:
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Yaru-dark'"
+- name: Clock Show Date
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-date"
+    value: "true"
+- name: Clock AM/PM Format
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-format"
+    value: "'12h'"
+- name: Clock No Weekday
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/clock-show-weekday"
+    value: "false"
+
 - name: Terminal Profile List
   become: yes
   become_user: matt
@@ -168,3 +205,10 @@
   dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-transparency"
     value: "false"
+
+- name: Numlock On
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/settings-daemon/peripherals/keyboard/numlock-state"
+    value: "'on'"
