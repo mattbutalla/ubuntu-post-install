@@ -51,6 +51,9 @@
     groups: docker
     append: yes
 
+- name: Install Intellij IDEA Ultimate
+  shell: snap install node --classic --channel=10
+
 - name: Install pip
   apt:
     name: python-pip
