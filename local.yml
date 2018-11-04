@@ -24,6 +24,9 @@
   apt:
     name: google-chrome-stable
 
+- name: Install Intellij IDEA Ultimate
+  shell: snap install intellij-idea-ultimate --classic
+
 - name: Install pip
   apt:
     name: python-pip
