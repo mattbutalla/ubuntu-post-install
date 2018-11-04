@@ -27,6 +27,30 @@
 - name: Install Intellij IDEA Ultimate
   shell: snap install intellij-idea-ultimate --classic
 
+- name: Install Docker Prereqs
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates 
+    - curl
+    - software-properties-common
+- name: Install Docker GPG Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+- name: Add Docker CE Repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+- name: Install Docker
+  apt:
+    name: docker-ce
+- name: Add 'matt' To Docker Group
+  user:
+    name: matt
+    groups: docker
+    append: yes
+
 - name: Install pip
   apt:
     name: python-pip
