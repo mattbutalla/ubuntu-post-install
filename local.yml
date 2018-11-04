@@ -129,12 +129,24 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding"
     value: "0"
-- name: GNOME Scaling
+- name: Interface Text
   become: yes
   become_user: matt
   dconf:
-    key: "/org/gnome/desktop/interface/text-scaling-factor"
-    value: "0.87"
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Ubuntu 9'"
+- name: Monospace Text
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/interface/monospace-font-name"
+    value: "'Ubuntu Mono 10'"
+- name: Legacy Window Titles Text
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/desktop/wm/preferences/titlebar-font"
+    value: "'Ubuntu 9'"
 - name: GTK Theme
   become: yes
   become_user: matt
