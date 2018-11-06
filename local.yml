@@ -162,6 +162,42 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding"
     value: "0"
+- name: Dash to Panel - Tray Size
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/tray-size"
+    value: "13"
+- name: Dash to Panel - Tray Padding
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/tray-padding"
+    value: "4"
+- name: Dash to Panel - Status Icon Padding
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/status-icon-padding"
+    value: "2"
+- name: Dash to Panel - Window Preview Height
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-height"
+    value: "75"
+- name: Dash to Panel - Window Preview Width
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-width"
+    value: "200"
+- name: Dash to Panel - Window Preview Padding
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding"
+    value: "0"
 - name: Interface Text
   become: yes
   become_user: matt
