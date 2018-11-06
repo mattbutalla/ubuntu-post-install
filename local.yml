@@ -24,6 +24,9 @@
   apt:
     name: google-chrome-stable
 
+- name: Install Spotify
+  shell: snap install spotify
+
 - name: Install Intellij IDEA Ultimate
   shell: snap install intellij-idea-ultimate --classic
 
@@ -51,7 +54,7 @@
     groups: docker
     append: yes
 
-- name: Install Intellij IDEA Ultimate
+- name: Install NodeJS
   shell: snap install node --classic --channel=10
 
 - name: Install pip
