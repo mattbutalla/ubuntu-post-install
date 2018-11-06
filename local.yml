@@ -198,6 +198,7 @@
   dconf:
     key: "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding"
     value: "0"
+
 - name: Interface Text
   become: yes
   become_user: matt
@@ -296,6 +297,25 @@
   dconf:
     key: "/org/gnome/settings-daemon/peripherals/keyboard/numlock-state"
     value: "'on'"
+
+- name: Nautilus - List Folder View
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/nautilus/preferences/default-folder-viewer"
+    value: "'list-view'"
+- name: Nautilus - Small Zoom Level
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/nautilus/list-view/default-zoom-level"
+    value: "'small'"
+- name: Nautilus - Sidebar Width
+  become: yes
+  become_user: matt
+  dconf:
+    key: "/org/gnome/nautilus/window-state/sidebar-width"
+    value: "205"
 
 - name: File Chooser - Show Hidden Files
   become: yes
