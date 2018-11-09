@@ -57,6 +57,14 @@
 - name: Install NodeJS
   shell: snap install node --classic --channel=10
 
+- name: Install Postman
+  unarchive:
+    src: https://dl.pstmn.io/download/latest/linux64
+    dest: /opt/
+    remote_src: yes
+- name: Copy Postman.desktop
+  shell: cp Postman.desktop ~/.local/share/applications/
+
 - name: Install pip
   apt:
     name: python-pip
