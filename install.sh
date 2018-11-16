@@ -41,7 +41,9 @@ sudo snap install node --classic --channel=10
 sudo snap install postman
 
 #gnome tweaks
-sudo apt-get -y install gnome-tweak-tool gnome-shell-extensions
+sudo add-apt-repository -y -u ppa:snwh/ppa
+sudo apt-get update
+sudo apt-get -y install gnome-tweak-tool gnome-shell-extensions arc-theme paper-icon-theme
 git clone https://github.com/home-sweet-gnome/dash-to-panel.git ~/dash-to-panel
 cd ~/dash-to-panel
 make install
@@ -60,17 +62,24 @@ dconf write "/org/gnome/shell/extensions/dash-to-panel/isolate-monitors" "true"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/focus-highlight-opacity" "20"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/dot-size" "2"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-showdesktop-button" "false"
-dconf write "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding" "0"
-dconf write "/org/gnome/shell/extensions/dash-to-panel/tray-size" "13"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding" "10"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/tray-size" "12"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/tray-padding" "4"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/status-icon-padding" "2"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/window-preview-height" "75"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/window-preview-width" "200"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/window-preview-padding" "0"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-bg" "true"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/trans-bg-color" "'#000000'"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/trans-use-custom-opacity" "true"
+dconf write "/org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity" "0.75"
 dconf write "/org/gnome/desktop/interface/font-name" "'Ubuntu 9'"
 dconf write "/org/gnome/desktop/interface/monospace-font-name" "'Ubuntu Mono 10'"
 dconf write "/org/gnome/desktop/wm/preferences/titlebar-font" "'Ubuntu 9'"
-dconf write "/org/gnome/desktop/interface/gtk-theme" "'Yaru-dark'"
+dconf write "/org/gnome/desktop/interface/gtk-theme" "'Arc-Dark'"
+dconf write "/org/gnome/desktop/interface/cursor-theme" "'Paper'"
+dconf write "/org/gnome/desktop/interface/icon-theme" "'Paper'"
+dconf write "/org/gnome/shell/extensions/user-theme/name" "'Arc-Dark'"
 dconf write "/org/gnome/desktop/interface/clock-show-date" "true"
 dconf write "/org/gnome/desktop/interface/clock-format" "'12h'"
 dconf write "/org/gnome/desktop/interface/clock-show-weekday" "false"
