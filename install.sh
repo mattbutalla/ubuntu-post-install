@@ -98,10 +98,13 @@ dconf write "/org/gnome/nautilus/window-state/sidebar-width" "205"
 dconf write "/org/gtk/settings/file-chooser/show-hidden" "true"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "'<Super>e'"
 
-rm ~/.gitconfig
-ln -s $STARTING_DIR/dotfiles/.gitconfig ~/.gitconfig
-
 #zsh
 sudo apt-get -y install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+sudo apt-get -y install fonts-powerline
+
+#dotfiles
+rm ~/.gitconfig ~/.zshrc
+ln -s $STARTING_DIR/dotfiles/.gitconfig ~/.gitconfig
+ln -s $STARTING_DIR/dotfiles/.zshrc ~/.zshrc
