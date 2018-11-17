@@ -100,10 +100,8 @@ dconf write "/org/gtk/settings/file-chooser/show-hidden" "true"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "'<Super>e'"
 
 #zsh
-sudo apt-get -y install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-sudo apt-get -y install fonts-powerline
+sudo apt-get -y install zsh fonts-powerline
+git clone https://github.com/zsh-users/antigen.git ~/.antigen
 
 #dotfiles
 rm ~/.gitconfig ~/.zshrc
