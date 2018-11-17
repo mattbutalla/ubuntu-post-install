@@ -107,3 +107,5 @@ git clone https://github.com/zsh-users/antigen.git ~/.antigen
 rm ~/.gitconfig ~/.zshrc
 ln -s $STARTING_DIR/dotfiles/.gitconfig ~/.gitconfig
 ln -s $STARTING_DIR/dotfiles/.zshrc ~/.zshrc
+
+chsh -s $(which zsh)
