@@ -1,5 +1,4 @@
 #!/bin/sh
-STARTING_DIR=$(pwd)
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y install curl git
@@ -47,10 +46,9 @@ sudo apt-get -y install gnome-tweak-tool gnome-shell-extensions arc-theme paper-
 git clone https://github.com/home-sweet-gnome/dash-to-panel.git ~/dash-to-panel
 cd ~/dash-to-panel
 make install
-cd ~
+cd -
 rm -fr ~/dash-to-panel
-cd $STARTING_DIR
-cp cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
+cp ./cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
 dconf write "/org/gnome/shell/enabled-extensions" "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file" "'/home/$USER/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png'"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-favorites" "false"
@@ -105,12 +103,12 @@ git clone https://github.com/zsh-users/antigen.git ~/.antigen
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts
 curl -fLo "Ubuntu Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
-cd $STARTING_DIR
+cd -
 
 #dotfiles
 rm ~/.gitconfig ~/.zshrc ~/.config/Code/User/settings.json
-ln -s $STARTING_DIR/dotfiles/.gitconfig ~/.gitconfig
-ln -s $STARTING_DIR/dotfiles/.zshrc ~/.zshrc
-ln -s $STARTING_DIR/dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
+ln -s ./dotfiles/.gitconfig ~/.gitconfig
+ln -s ./dotfiles/.zshrc ~/.zshrc
+ln -s ./dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
 
 chsh -s $(which zsh)
