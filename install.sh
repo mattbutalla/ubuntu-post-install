@@ -42,7 +42,8 @@ sudo snap install postman
 #gnome tweaks
 sudo add-apt-repository -y -u ppa:snwh/ppa
 sudo apt-get update
-sudo apt-get -y install gnome-tweak-tool gnome-shell-extensions arc-theme paper-icon-theme
+sudo apt-get -y install gnome-tweak-tool gnome-shell-extensions arc-theme paper-icon-theme nemo
+xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 git clone https://github.com/home-sweet-gnome/dash-to-panel.git ~/dash-to-panel
 cd ~/dash-to-panel
 make install
@@ -89,12 +90,16 @@ dconf write "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e
 dconf write "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors" "false"
 dconf write "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-transparency" "false"
 dconf write "/org/gnome/settings-daemon/peripherals/keyboard/numlock-state" "'on'"
-dconf write "/org/gnome/nautilus/preferences/default-folder-viewer" "'list-view'"
-dconf write "/org/gnome/nautilus/list-view/default-zoom-level" "'small'"
-dconf write "/org/gnome/nautilus/window-state/sidebar-width" "205"
 dconf write "/org/gnome/nautilus/desktop/trash-icon-visible" "false"
 dconf write "/org/gnome/nautilus/desktop/volumes-visible" "false"
-dconf write "/org/gtk/settings/file-chooser/show-hidden" "true"
+dconf write "/org/nemo/preferences/default-folder-viewer" "'list-view'"
+dconf write "/org/nemo/window-state/side-pane-view" "'places'"
+dconf write "/org/nemo/preferences/show-hidden-files" "'true'"
+dconf write "/org/nemo/preferences/show-location-entry" "true"
+dconf write "/org/nemo/list-view/default-visible-columns" "['name', 'size', 'type', 'date_modified', 'owner', 'group', 'permissions']"
+dconf write "/org/nemo/list-view/default-column-order" "['name', 'size', 'type', 'date_modified', 'date_accessed', 'detailed_type', 'where', 'mime_type', 'date_modified_with_time', 'owner', 'group', 'permissions', 'octal_permissions', 'selinux_context']"
+dconf write "/org/nemo/preferences/date-format" "'iso'"
+dconf write "/org/nemo/window-state/start-with-menu-bar" "false"
 dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "'<Super>e'"
 
 #zsh
