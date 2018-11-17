@@ -102,10 +102,15 @@ dconf write "/org/gnome/settings-daemon/plugins/media-keys/home" "'<Super>e'"
 #zsh
 sudo apt-get -y install zsh fonts-powerline
 git clone https://github.com/zsh-users/antigen.git ~/.antigen
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+curl -fLo "Ubuntu Mono Nerd Font Complete Mono.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
+cd $STARTING_DIR
 
 #dotfiles
-rm ~/.gitconfig ~/.zshrc
+rm ~/.gitconfig ~/.zshrc ~/.config/Code/User/settings.json
 ln -s $STARTING_DIR/dotfiles/.gitconfig ~/.gitconfig
 ln -s $STARTING_DIR/dotfiles/.zshrc ~/.zshrc
+ln -s $STARTING_DIR/dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
 
 chsh -s $(which zsh)
