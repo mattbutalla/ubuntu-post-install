@@ -1,4 +1,7 @@
 #!/bin/sh
+SCRIPT=$(ls -l $0 | awk '{ print $NF }')
+SCRIPTDIR=$(dirname $SCRIPT)
+
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y install curl git vim
@@ -49,7 +52,7 @@ cd ~/dash-to-panel
 make install
 cd -
 rm -fr ~/dash-to-panel
-cp ./cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
+cp $SCRIPTDIR/cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
 dconf write "/org/gnome/shell/enabled-extensions" "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file" "'/home/$USER/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png'"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-favorites" "false"
@@ -112,9 +115,9 @@ cd -
 
 #dotfiles
 rm ~/.gitconfig ~/.zshrc ~/.config/Code/User/settings.json
-ln -s $PWD/dotfiles/.gitconfig ~/.gitconfig
-ln -s $PWD/dotfiles/.zshrc ~/.zshrc
+ln -s $SCRIPTDIR/dotfiles/.gitconfig ~/.gitconfig
+ln -s $SCRIPTDIR/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.config/Code/User
-ln -s $PWD/dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
+ln -s $SCRIPTDIR/dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
 
 chsh -s $(which zsh)
