@@ -114,6 +114,7 @@ cd -
 rm ~/.gitconfig ~/.zshrc ~/.config/Code/User/settings.json
 ln -s $PWD/dotfiles/.gitconfig ~/.gitconfig
 ln -s $PWD/dotfiles/.zshrc ~/.zshrc
+mkdir -p ~/.config/Code/User
 ln -s $PWD/dotfiles/vscode-user-settings.json ~/.config/Code/User/settings.json
 
 chsh -s $(which zsh)
