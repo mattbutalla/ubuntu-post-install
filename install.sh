@@ -1,7 +1,7 @@
 #!/bin/sh
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt-get -y install curl git
+sudo apt-get -y install curl git vim
 
 #vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
