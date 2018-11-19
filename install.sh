@@ -53,7 +53,7 @@ make install
 cd -
 rm -fr ~/dash-to-panel
 cp $SCRIPTDIR/cof_orange_hex.png ~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img
-dconf write "/org/gnome/shell/enabled-extensions" "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com']"
+dconf write "/org/gnome/shell/enabled-extensions" "['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'alternate-tab@gnome-shell-extensions.gcampax.github.com']"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-apps-icon-file" "'/home/$USER/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com/img/cof_orange_hex.png'"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/show-favorites" "false"
 dconf write "/org/gnome/shell/extensions/dash-to-panel/panel-size" "40"
