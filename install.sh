@@ -42,6 +42,16 @@ sudo snap install node --classic --channel=10
 #postman
 sudo snap install postman
 
+#java development
+sudo apt -y install openjdk-11-jdk
+cd /opt
+sudo rm -fr /opt/apache-maven
+sudo curl -fLo "apache-maven.tar.gz" http://mirrors.sorengard.com/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+sudo tar -xzf apache-maven.tar.gz
+sudo mv /opt/apache-maven-3.6.0 /opt/apache-maven
+sudo rm apache-maven.tar.gz
+cd -
+
 #gnome tweaks
 sudo add-apt-repository -y -u ppa:snwh/ppa
 sudo apt-get update
