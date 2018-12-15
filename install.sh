@@ -24,6 +24,12 @@ sudo apt-get install google-chrome-stable
 #spotify
 sudo snap install spotify
 
+#slack
+sudo snap install slack --classic
+
+#keepassxc
+sudo snap install keepassxc
+
 #intellij
 sudo snap install intellij-idea-ultimate --classic
 
