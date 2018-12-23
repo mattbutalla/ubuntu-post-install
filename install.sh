@@ -30,6 +30,9 @@ sudo snap install slack --classic
 #keepassxc
 sudo snap install keepassxc
 
+#rclone
+curl https://rclone.org/install.sh | sudo bash
+
 #intellij
 sudo snap install intellij-idea-ultimate --classic
 
@@ -41,6 +44,9 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-compose
 sudo usermod -aG docker $USER
+
+#k8s
+sudo snap install microk8s --classic
 
 #nodejs
 sudo snap install node --classic --channel=10
