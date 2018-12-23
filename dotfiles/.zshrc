@@ -17,5 +17,3 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell Antigen that you're done.
 antigen apply
-
-export PATH=/opt/apache-maven/bin:$PATH
