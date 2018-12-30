@@ -17,3 +17,9 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell Antigen that you're done.
 antigen apply
+
+alias 'mnt-docs'='rclone mount --daemon --allow-non-empty --vfs-cache-mode=full google-drive:/documents ~/Documents'
+alias 'umnt-docs'='fusermount -u ~/Documents'
+
+alias 'mnt-pics'='rclone mount --daemon --vfs-cache-mode=full butalla-photos:butalla-photos ~/Pictures/butalla-photos'
+alias 'umnt-pics'='fusermount -u ~/Pictures/butalla-photos'
